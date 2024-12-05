@@ -1,0 +1,37 @@
+{
+  "name": "oski-website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
+    "generate": "vite build --ssrManifest .vite/ssr-manifest.json --outDir dist/static && npm run build:server && node prerender",
+    "preview": "cross-env NODE_ENV=production node server"
+  },
+  "dependencies": {
+    "@unhead/ssr": "^1.11.1",
+    "@unhead/vue": "^1.11.1",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
+    "sirv": "^2.0.4",
+    "unhead": "^1.11.1",
+    "vue": "^3.4.23",
+    "vue-i18n": "^9.14.0",
+    "vue-router": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "cross-env": "^7.0.3",
+    "sass": "^1.77.8",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
+    "vue-tsc": "^2.0.14"
+  }
+}
